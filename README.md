@@ -1,6 +1,7 @@
 # game-2048
 
 [![Actions Status](https://github.com/garlinhs/game-2048/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/garlinhs/game-2048/actions/workflows/ci.yml)
+[![Run on Repl.it](https://repl.it/badge/github/garlinhs/game-2048)](https://repl.it/github/garlinhs/game-2048)
 
 > Terminal version of the game "2048" written in C++.
 
