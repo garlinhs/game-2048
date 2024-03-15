@@ -172,6 +172,10 @@ bool_gamestatus_t check_input_other(char c, gamestatus_t gamestatus) {
     gamestatus[FLAG_SAVED_GAME] = true;
     is_invalid_keycode = false;
     break;
+  case CODE_HOTKEY_ACTION_EXIT:
+      gamestatus[FLAG_END_GAME] = true;
+      is_invalid_keycode = false;
+    break;
   case CODE_HOTKEY_QUIT_ENDLESS_MODE:
     if (gamestatus[FLAG_ENDLESS_MODE]) {
       gamestatus[FLAG_END_GAME] = true;
