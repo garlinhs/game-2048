@@ -377,7 +377,9 @@ GameBoard endlessGameLoop(ull currentBestScore, competition_mode_t cm,
 
   DrawAlways(std::cout,
              DataSuppliment(currentgamestatus, drawEndGameLoopGraphics));
-  return gb;
+
+  using tup_idx = tuple_cgs_t_idx;
+  return std::get<tup_idx::IDX_GAMEBOARD>(currentgamestatus);
 }
 
 Scoreboard::Score make_finalscore_from_game_session(double duration,
