@@ -172,7 +172,6 @@ void Game::drawBoard() {
 }
 
 void Game::input(int err) {
-
   moved = false;
   char c;
 
@@ -197,7 +196,6 @@ void Game::input(int err) {
   endl(4);
 
   switch (toupper(c)) {
-
   case 'W':
     decideMove(UP);
     break;
@@ -220,7 +218,6 @@ void Game::input(int err) {
 }
 
 bool Game::canMove() {
-
   for (int y = 0; y < BOARD_SIZE; y++) {
     for (int x = 0; x < BOARD_SIZE; x++) {
       if (!board[y][x].value) {
@@ -250,7 +247,6 @@ bool Game::canMove() {
 }
 
 bool Game::testAdd(int y, int x, ull value) {
-
   if (y < 0 || y > BOARD_SIZE - 1 || x < 0 || x > BOARD_SIZE - 1) {
     return false;
   }
@@ -259,7 +255,6 @@ bool Game::testAdd(int y, int x, ull value) {
 }
 
 void Game::unblockTiles() {
-
   for (int y = 0; y < BOARD_SIZE; y++) {
     for (int x = 0; x < BOARD_SIZE; x++) {
       board[y][x].blocked = false;
@@ -268,11 +263,8 @@ void Game::unblockTiles() {
 }
 
 void Game::decideMove(Directions d) {
-
   switch (d) {
-
   case UP:
-
     for (int x = 0; x < BOARD_SIZE; x++) {
       int y = 1;
       while (y < BOARD_SIZE) {
@@ -285,7 +277,6 @@ void Game::decideMove(Directions d) {
     break;
 
   case DOWN:
-
     for (int x = 0; x < BOARD_SIZE; x++) {
       int y = BOARD_SIZE - 2;
       while (y >= 0) {
@@ -298,7 +289,6 @@ void Game::decideMove(Directions d) {
     break;
 
   case LEFT:
-
     for (int y = 0; y < BOARD_SIZE; y++) {
       int x = 1;
       while (x < BOARD_SIZE) {
@@ -311,7 +301,6 @@ void Game::decideMove(Directions d) {
     break;
 
   case RIGHT:
-
     for (int y = 0; y < BOARD_SIZE; y++) {
       int x = BOARD_SIZE - 2;
       while (x >= 0) {
@@ -326,7 +315,6 @@ void Game::decideMove(Directions d) {
 }
 
 void Game::move(int y, int x, int k, int l) {
-
   Tile &currentTile = board[y][x];
   Tile &targetTile = board[y + k][x + l];
 
@@ -336,7 +324,6 @@ void Game::move(int y, int x, int k, int l) {
   int D = targetTile.blocked;
 
   if (B && A == B && !C && !D) {
-
     currentTile.value = 0;
     targetTile.value *= 2;
     score += targetTile.value;
@@ -367,7 +354,6 @@ void Game::move(int y, int x, int k, int l) {
   }
 
   else if (A && !B) {
-
     targetTile.value = currentTile.value;
     currentTile.value = 0;
 
@@ -382,7 +368,6 @@ void Game::move(int y, int x, int k, int l) {
 }
 
 void Game::statistics() {
-
   std::cout << yellow << "  STATISTICS" << def;
   endl();
   std::cout << yellow << "  ----------" << def;
@@ -429,7 +414,6 @@ void Game::saveScore() {
 }
 
 void Game::startGame(int err) {
-
   Stats stats;
   stats.collectStatistics();
   bestScore = stats.bestScore;
@@ -462,14 +446,12 @@ void Game::startGame(int err) {
   addTile();
 
   while (1) {
-
     if (moved) {
       if (!addTile()) {
         drawBoard();
         break;
       }
     }
-
     drawBoard();
     input();
   }
